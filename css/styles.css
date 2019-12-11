@@ -37,6 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
+	justify-content: center;
 }
 #maincontent {
   background-color: #f3f3f3;
@@ -287,12 +288,12 @@ nav h1 a {
 }
 
 /*adding media queries for various sizes for responsive design */
-@media screen, print and (max-width: 320px) {
+@media screen, print and (max-width: 320) {
 
   nav h1 a {
 
     font-size: .70em;
-    letter-spacing: 0;
+    letter-spacing: .5em;
     text-align: center;
 
   }
@@ -308,13 +309,23 @@ nav h1 a {
   /* block-size: auto; */
     display: inline-block;
     background-color: #3397DB;
-    font-size: 1.3em;
+    font-size: 1.8em;
   }
 
-  .filter-options select {
+  select #neighborhoods-select {
 
     font-size: 1.2em;
 
+  }
+
+  ul {
+
+    padding: 0px;
+  }
+
+  ul#restaurants-list {
+
+    justify-content: center;
   }
 
   #footer {
@@ -323,16 +334,3 @@ nav h1 a {
 
   }
   
-}
-
-@media screen, print and (max-width: 768px) {
-
-  nav h1 a {
- 
-  font-size: 1.25em;
-  letter-spacing: .5em;
-  font-weight: 200;
-
-
-
-}
