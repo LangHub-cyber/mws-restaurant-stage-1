@@ -3,6 +3,8 @@
 
 /* CSS Document */
 
+/*Changed some font px sizes to em and made images widths 100 (height auto assumed) for responsiveness*/
+
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: .85em;
@@ -67,7 +69,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 
 }
 
-#footer:hover,
+#footer:hover,  /*Added focus and color to footer for better accessibility*/
 #footer:focus {
   background-color: darkgreen;
       
@@ -75,7 +77,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 
 
 /* ====================== Navigation ====================== */
-
+/*Added skip-links to improve accessibility and navigation. */
 .skip-link {
     display: block;
     position: absolute;
@@ -175,6 +177,7 @@ ul#breadcrumb a:focus {
 
 
 /* ====================== Restaurant Filtering ====================== */
+/* Added color, focus/hover and contrast for visual impairment and screen reader accessibility. */
 .filter-options {
   width: 100%;
   height: auto;
@@ -197,7 +200,7 @@ ul#breadcrumb a:focus {
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
   font-size: 1.5em;
-  height: auto;  /* trying out auto height for effect-Terise*/
+  height: auto;  
   letter-spacing: 0;
   margin: 10px;
   padding: 0 10px;
@@ -440,7 +443,7 @@ p#restaurant-cuisine:hover {
   
 }
 
-#reviews-list li p:nth-of-type(3) { /* selects third item, rating, to add attribute*/
+#reviews-list li p:nth-of-type(3) { /* selects third item, rating, to add attributes*/
 
   text-transform: uppercase;
   font-weight: bold;
@@ -449,6 +452,8 @@ p#restaurant-cuisine:hover {
 #restaurant-hours td {
   color: #133;
 }
+
+/*Added media queries to enhance responsive design on different browsers, devices */
 
 @media screen, print and (min-width: 200px) and (max-width: 330px) {
   
@@ -671,9 +676,9 @@ p#restaurant-cuisine:hover {
 /* margin: auto; */
   }
 
-  ul#breadcrumb {  /*experiment 12-22-19 */
+  ul#breadcrumb {  
 
-    font-size: 1.2em; /*experiment 12-22-19 */
+    font-size: 1.2em; 
 
   }
 
@@ -730,6 +735,7 @@ p#restaurant-cuisine:hover {
 
     font-size: 1em;
   }
+  
 }
 
 @media screen, print and (min-width: 769px) and (max-width: 1200px) {
