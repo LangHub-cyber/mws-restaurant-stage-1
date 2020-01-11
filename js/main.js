@@ -161,10 +161,13 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `Promo view of restaurant ${restaurant.name}`; //alt attribute required for accessibility
+  image.setAttribute('tabindex', 0); //Terise tried 1/6/20 10:54 PM
   li.append(image);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
+  name.setAttribute('tabindex', 0);
   li.append(name);
 
   const neighborhood = document.createElement('p');
@@ -173,10 +176,12 @@ createRestaurantHTML = (restaurant) => {
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  address.setAttribute('tabindex', 0); //Terise's GUESS 1/6/20 12 AM
   li.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute('aria-label', `View details about ${restaurant.name}`); //A. Perez
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
@@ -197,15 +202,18 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 
-} 
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
+}; 
+
+if ('serviceWorker' in navigator) {
+
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+
+    console.log('Registration successful, scope is:', registration.scope);
   });
-} */
+
+  .catch(function(error) {
+
+    console.log('Service worker registration failed, error:', error);
+  });
+};
 
