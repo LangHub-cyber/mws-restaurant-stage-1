@@ -1,0 +1,22 @@
+
+# from alexandro perez's restaurant review video
+
+# to ignore the hidden file
+js/hidden_token.js
+
+# to ignore some dependencies 
+
+node_modules/
+
+# to ignore some of the logs
+
+logs
+
+*.log
+
+npm-debut.log*
+
+yarn-debug log*
+
+yarn-error log*
+

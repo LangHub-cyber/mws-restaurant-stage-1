@@ -82,21 +82,16 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
-  name.setAttribute('tabindex', 0);
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-  address.setAttribute('tabindex', 0); //Terise added 1-6-20 to get cursor to tab to address
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'; //added semicolon 1-8-20; didn't notice it missing until then
-  image.alt=`Promo view of restaurant ${restaurant.name}`; //Terise added this alt property/value
+  image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.setAttribute('tabindex', 0); //Terise tried 1/5/20 10:54 PM
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-  cuisine.setAttribute('tabindex', 0); //Terise set this part up
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -115,12 +110,10 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
-    day.setAttribute('tabindex', 0);
     day.innerHTML = key;
     row.appendChild(day);
 
     const time = document.createElement('td');
-    time.setAttribute('tabindex', 0);
     time.innerHTML = operatingHours[key];
     row.appendChild(time);
 
@@ -134,7 +127,6 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
-  title.setAttribute('tabindex', 0);
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -156,8 +148,6 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  li.setAttribute('tabindex', 0);
-
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
