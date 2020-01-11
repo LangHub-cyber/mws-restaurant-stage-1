@@ -1,4 +1,6 @@
-@charset "utf-8";
+@charset "utf-8"; 
+/* character set notation - standard for backward ASCII compatibility */
+
 /* CSS Document */
 
 body,td,th,p{
