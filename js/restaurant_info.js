@@ -60,7 +60,7 @@ fetchRestaurantFromURL = (callback) => {
 
 /**
  * Create restaurant HTML and add it to the webpage */
- /*Added tab index to these restaurant details for accessibility.*/
+ /*Added tab index to these restaurant details for greater accessibility.*/
 
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
