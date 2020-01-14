@@ -192,18 +192,25 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 
 
+//from sessionstack and  udacity and traversy media and jeff posnick
+
+//check to see if browser is supported
+
 if ('serviceWorker' in navigator) {
 
-  'use strict'; 
+  //for sake of user experience, make sure initial page loads prior to registration
+  window.addEventListener('load', function() {
 
-  navigator.serviceWorker.register('/sw.js').then( (registration) => {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
 
-    console.log('Registration successful, scope is:', registration.scope);
-  });
+      console.log('ServiceWorker registration successful');
 
-  .catch( (error) => {
+      //once installed, goes through the install and activate events in lifecycle
 
-    console.log('Service worker registration failure, error:', error);
+    }, function(err) {
+      // If registration failed
+      console.log('ServiceWorker registration failure: ', err);
+    });
   });
 }
-
