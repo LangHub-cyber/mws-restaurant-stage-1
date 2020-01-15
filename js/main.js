@@ -203,7 +203,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('js/sw.js').then(function(registration) {
       // Registration was successful
 
-      console.log('ServiceWorker registration successful');
+      console.log('ServiceWorker registration success: ', registration);
 
       //once installed, goes through the install and activate events in lifecycle
 
