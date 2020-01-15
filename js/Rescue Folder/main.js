@@ -88,22 +88,7 @@ initMap = () => {
 
   updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
-
-/**
- * Update page and map for current restaurants.
- */
+/*Deleted google map code references since Mapbox/Leaflet were used. */
 updateRestaurants = () => {
   const cSelect = document.getElementById('cuisines-select');
   const nSelect = document.getElementById('neighborhoods-select');
@@ -158,11 +143,12 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  //Added tabindex of 0 to focus restaurant details for greater accessibility.
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `Promo view of restaurant ${restaurant.name}`; //alt attribute required for accessibility
-  image.setAttribute('tabindex', 0); //Terise tried 1/6/20 10:54 PM
+  image.setAttribute('tabindex', 0); 
   li.append(image);
 
   const name = document.createElement('h1');
@@ -176,7 +162,7 @@ createRestaurantHTML = (restaurant) => {
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
-  address.setAttribute('tabindex', 0); //Terise's GUESS 1/6/20 12 AM
+  address.setAttribute('tabindex', 0); 
   li.append(address);
 
   const more = document.createElement('a');
@@ -195,29 +181,36 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
-    marker.on("click", onClick);
+    marker.on('click', onClick);
     function onClick() {
       window.location.href = marker.options.url;
     }
     self.markers.push(marker);
   });
 
-} 
-//below will be the serviceworker registration done with tutor 1-10-20
+}; 
 
-// if ("serviceWorker" in navigator) {
 
-//   navigator.serviceWorker.register("./sw-test/sw.js", {scope: "./sw-test/"});
+//from sessionstack and  udacity and traversy media and jeff posnick
 
-//   .then((reg) => {
+//check to see if browser is supported
 
-//     //registration successful
-//     console.log("Registration success! Scope is" +  reg.scope);
+if ('serviceWorker' in navigator) {
 
-//   }) .catch ((error) => {
+  //for sake of user experience, make sure initial page loads prior to registration
+  window.addEventListener('load', function() {
 
-//     //Registration failed.
-//     console.log("Registration failed with" +  error);
+    navigator.serviceWorker.register('js/sw.js').then(function(registration) {
+      // Registration was successful
 
-//   });
-// }
+      console.log('ServiceWorker registration successful');
+
+      //once installed, goes through the install and activate events in lifecycle
+
+    }, function(err) {
+      
+      // If registration failed
+      console.log('ServiceWorker registration failure: ', err);
+    });
+  });
+}

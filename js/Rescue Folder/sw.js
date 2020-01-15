@@ -1,23 +1,61 @@
-//This will be the file where I start the service worker
+//Beginning of edited mozilla code for service worker file
 
-//intercept all network requests
-self.addEventListener('fetch', function(event) {
-  //hold off on releasing the event
-  event.respondWith(
-    //caches is a browser API; "mysite-dynamic" is a custom name
-    caches.open('mysite-dynamic').then(function(cache) {
-      //the caches API has been opened, we can do something with it...
-      //first: try to match the request with something in the cache
-      return cache.match(event.request).then(function(cachedResponse) {
-        //if there's a cachedResponse from the cache system, then the requested file is in cache; return it
-        //otherwise, go ahead and complete the fetch to the server, but intercept the serverResponse
-        return cachedResponse || fetch(event.request).then(function(serverResponse) {
-          //serverResponse is data from the server; put a cloned version of it into our cache
-          cache.put(event.request, serverResponse.clone());
-          //then release the server response
-          return response;
-        });
-      });
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('mws-restaurant-stage-1').then(function(cache) {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/restaurant.html',
+        '/sw.js',
+        '/js/dbhelper.js',
+        '/js/main.js',
+        '/js/restaurant_info.js',
+        '/css/styles.css',
+        '/img/1.jpg',
+        '/img/2.jpg',
+        '/img/3.jpg',
+        '/img/4.jpg',
+        '/img/5.jpg',
+        '/img/6.jpg',
+        '/img/7.jpg',
+        '/img/8.jpg',
+        '/img/9.jpg',
+        '/img/10.jpg',
+      ]);
     })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+
+  event.respondWith(
+
+    caches.match(event.request).then(function(response) {
+
+      if (response) return response;
+      
+        return fetch(event.request);
+    })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  
+  event.respondWith(
+    
+    fetch(event.request).then(function(response) {
+      
+      if (response.status === 404) {
+        
+        return new Response('404: Page not found');
+      }
+
+      return response;
+
+    }).catch(function() {
+
+        return new Response('No Internet connection');
+      })
   );
 });

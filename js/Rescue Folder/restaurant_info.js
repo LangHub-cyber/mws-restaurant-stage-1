@@ -35,25 +35,7 @@ initMap = () => {
   });
 }  
  
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-} */
-
-/**
- * Get current restaurant from page URL.
- */
+/*Deleted Google Maps code since Mapbox/Leaflet were used. */
 fetchRestaurantFromURL = (callback) => {
   if (self.restaurant) { // restaurant already fetched!
     callback(null, self.restaurant)
@@ -82,21 +64,21 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
-  name.setAttribute('tabindex', 0);
+  name.setAttribute('tabindex', 0); //Added tab index to restaurant details for accessibility.
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-  address.setAttribute('tabindex', 0); //Terise added 1-6-20 to get cursor to tab to address
+  address.setAttribute('tabindex', 0); 
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'; //added semicolon 1-8-20; didn't notice it missing until then
-  image.alt=`Promo view of restaurant ${restaurant.name}`; //Terise added this alt property/value
+  image.className = 'restaurant-img'; 
+  image.alt=`Promo view of restaurant ${restaurant.name}`; //Added alt attribute for accessibility.
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.setAttribute('tabindex', 0); //Terise tried 1/5/20 10:54 PM
+  image.setAttribute('tabindex', 0); 
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-  cuisine.setAttribute('tabindex', 0); //Terise set this part up
+  cuisine.setAttribute('tabindex', 0); 
 
   // fill operating hours
   if (restaurant.operating_hours) {
