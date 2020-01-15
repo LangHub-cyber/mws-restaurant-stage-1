@@ -35,13 +35,35 @@ self.addEventListener ('install', function (event) {
 
       .then(function(cache) {
 
-        console.log("Cache now open");
+        console.log('Cache now open');
 
         return cache.addAll (cachedAssets);
      
     })
   );
 });
+
+//trying activate function 1-14-20 at 8:20 PM
+
+self.addEventListener('activate', function(event) {
+
+
+  console.log('Service worker now activated');
+
+  //for efficiency, remove old cache
+
+  event.waitUntil(caches.keys().then(staticCache) {
+
+    return (Promise.all
+      (cachedAssets.filter(cache) {
+        if (cache !== cachedAssets) {
+          console.log('Service worker currently clearing old cache');
+          return caches.delete(cache);
+        };
+      });
+    );  
+  
+  });
 
 //With service worker installed, service worker receives fetch events
 self.addEventListener('fetch', function (event) {
