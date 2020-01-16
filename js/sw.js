@@ -1,8 +1,8 @@
 //From mozilla mdn and google chrome documentation re service workers
 
-'use strict';
+// 'use strict';
 
-var staticCache = "cache-version1";
+var staticCache = "cache-version2";
 
 var cachedAssets = [
 
@@ -27,19 +27,17 @@ var cachedAssets = [
 
 ];
 //Self refers to the service worker's global scope.
-self.addEventListener ('install', function (event) {
+self.addEventListener('install', function (event) {
   //Do the install
-  event.waitUntil (
-
-    caches.open (staticCache)
+  event.waitUntil(caches.open (staticCache)
 
       .then(function(cache) {
 
         console.log('Cache now open');
 
-        return cache.addAll (cachedAssets);
+        return cache.addAll(cachedAssets);
      
-    })
+      })
   );
 });
 
@@ -52,18 +50,16 @@ self.addEventListener('activate', function(event) {
 
   //for efficiency, remove old cache
 
-  event.waitUntil(caches.keys().then(staticCache) {
+  event.waitUntil(caches.keys().then(cachedAssets)); {
 
-    return (Promise.all
-      (cachedAssets.filter(cache) {
+    return Promise.all(cachedAssets.filter(cache)); { 
         if (cache !== cachedAssets) {
           console.log('Service worker currently clearing old cache');
           return caches.delete(cache);
-        };
-      });
-    );  
-  
-  });
+        }
+    }  
+  }  
+});
 
 //With service worker installed, service worker receives fetch events
 self.addEventListener('fetch', function (event) {
