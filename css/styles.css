@@ -175,9 +175,9 @@ ul#breadcrumb a:focus {
    background-color: #A8A8A8FF; 
 }
 
-
 /* ====================== Restaurant Filtering ====================== */
 /* Added color, focus/hover and contrast for visual impairment and screen reader accessibility. */
+
 .filter-options {
   width: 100%;
   height: auto;
@@ -187,6 +187,7 @@ ul#breadcrumb a:focus {
   align-items: center;
 
 }
+
 .filter-options h2 {
   color: white;
   font-size: 2em;
@@ -199,12 +200,13 @@ ul#breadcrumb a:focus {
   background-color: white;
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
-  font-size: 1.5em;
-  height: auto;  
+  font-size: 1.75em;
+  font-weight: bolder;
+  height: auto;
   letter-spacing: 0;
   margin: 10px;
   padding: 0 10px;
-  width: 200px;
+  width: 220px;
 }
 
   select#cuisines-select:focus,
@@ -504,6 +506,9 @@ p#restaurant-cuisine:hover {
     height: 425px;
   }
 
+
+
+
   div.filter-options {
     height: auto;
     padding-bottom: 15px;
@@ -527,7 +532,7 @@ p#restaurant-cuisine:hover {
 ul#restaurants-list li {
 
   border-width: 4px;
-  border-color: #3397DB;
+  border-color: #1016EE;
 }
 
   ul#restaurants-list li a {
