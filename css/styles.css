@@ -190,7 +190,7 @@ ul#breadcrumb a:focus {
 
 .filter-options h2 {
   color: white;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: normal;
   line-height: 1;
   margin: 0 20px;
@@ -513,16 +513,19 @@ p#restaurant-cuisine:hover {
     height: auto;
     padding-bottom: 15px;
     font-size: .80em;
+
     
   }
 
   .filter-options h2 {
   /* block-size: auto; */
-    display: inline-block;
-    background-color: #3397DB;
-    font-size: 1.8em;
-    font-weight: bold;
-    
+  display: inline-block;
+  background-color: #3397DB;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+
+
   }
 
   #restaurant-container {
@@ -533,6 +536,7 @@ ul#restaurants-list li {
 
   border-width: 4px;
   border-color: #1016EE;
+  border-radius: 8px;
 }
 
   ul#restaurants-list li a {
@@ -570,9 +574,9 @@ ul#restaurants-list li {
     text-align: center;
     color: #FFFFFFFF;
     max-width: 100%;
-    margin: auto;
-  }
+    margin: 4px, auto, auto;
 
+  }
 
   p#restaurant-address {
 
