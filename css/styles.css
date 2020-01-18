@@ -181,7 +181,7 @@ ul#breadcrumb a:focus {
 .filter-options {
   width: 100%;
   height: auto;
-  background-color: #3397DB;
+  background-color: #1016EE;
   padding-bottom: 30px;
   padding-top: 15px;
   align-items: center;
@@ -191,9 +191,11 @@ ul#breadcrumb a:focus {
 .filter-options h2 {
   color: white;
   font-size: 2.5em;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1;
   margin: 0 20px;
+  background-color: #1016EE
+
 
 }
 .filter-options select {
@@ -675,10 +677,9 @@ ul#restaurants-list li {
 @media screen, print and (max-width: 390px) {
 
   .filter-options h2 {
-
-    display: flex;
-
-  }
+display: flex;
+background-color: #1016EE;
+}
 
 }
   
