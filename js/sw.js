@@ -1,14 +1,23 @@
-//From mozilla mdn and google chrome documentation re service workers
-
+// From Traversy Media, mozilla mdn,google chrome documentation re service workers
+//and Jeff Posnick,  Jake Archibald, Bits and Pieces
 // 'use strict';
 
-var staticCache = "cache-version2";
+const staticCache = 'staticCache-v1';
 
-var cachedAssets = [
+const cachedAssets = [  //Local assets to keep in the cache
 
-  '/',
+  
   '/index.html',
-  '/restaurant.html',
+  '/restaurant.html?id=1',
+  '/restaurant.html?id=2',
+  '/restaurant.html?id=3',
+  '/restaurant.html?id=4',
+  '/restaurant.html?id=5',
+  '/restaurant.html?id=6',
+  '/restaurant.html?id=7',
+  '/restaurant.html?id=8',
+  '/restaurant.html?id=9',
+  '/restaurant.html?id=10',
   '/js/dbhelper.js',
   '/js/main.js',
   '/js/restaurant_info.js',
@@ -26,72 +35,74 @@ var cachedAssets = [
   '/img/10.jpg',
 
 ];
-//Self refers to the service worker's global scope.
-self.addEventListener('install', function (event) {
-  //Do the install
-  event.waitUntil(caches.open (staticCache)
+//Install precaches the resources for later use.
+self.addEventListener('install', event => {
 
-      .then(function(cache) {
+  console.log('Service worker now installed');
 
-        console.log('Cache now open');
+  event.waitUntil(
+//opening the cache
+    caches
+      .open(staticCache)
 
-        return cache.addAll(cachedAssets);
-     
+      .then(cache => {
+
+        console.log('service worker putting files in cache');
+
+        cache.addAll(cachedAssets);
       })
+
+      .then(() => self.skipWaiting()) 
+
   );
+        
 });
 
-//trying activate function 1-14-20 at 8:20 PM
+//Activate function and clear up the old cache.
 
-self.addEventListener('activate', function(event) {
-
+self.addEventListener('activate', (event) => {
 
   console.log('Service worker now activated');
-
-  //for efficiency, remove old cache
-
-  event.waitUntil(caches.keys().then(cachedAssets)); {
-
-    return Promise.all(cachedAssets.filter(cache)); { 
-        if (cache !== cachedAssets) {
-          console.log('Service worker currently clearing old cache');
-          return caches.delete(cache);
-        }
-    }  
-  }  
-});
-
-//With service worker installed, service worker receives fetch events
-self.addEventListener('fetch', function (event) {
-
-  event.respondWith(
-
-    caches.match (event.request).then (function (response) {
-
-      if (response) return response;
-      
-        return fetch (event.request);
-    })
-  );
-});
-
-
-self.addEventListener ('fetch', function (event) {
   
-  event.respondWith (
+ 
+  event.waitUntil(
+
+    caches.keys().then(cachedAssets => {
+
+      // return cachedAssets.filter(cachedAsset =>)
+
+      return Promise.all(
+
+        cachedAssets.map(cache => {
+
+          if(cache !== staticCache) {
+
+            console.log('To clear older cache through service worker');
+
+            return caches.delete(cache);
+
+          }  
     
-    fetch (event.request).then (function (response) {
-      
-      if (response.status === 404) {
-        
-        return new Response ('404: Page not found');
-      }
+       })
+  
+      )
 
-      return response;
+    })
 
-    }).catch (function() {
+  ); 
 
-        return new Response ('Sorry, no Internet connection');
-      })
-  );
 });
+            
+
+//To check if files available offline, need fetch event.
+//Then enable offline content availability.
+self.addEventListener('fetch', event => {
+
+  console.log('Service worker fetches');
+
+  event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+  
+    
+});
+
+
