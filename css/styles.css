@@ -380,7 +380,7 @@ p#restaurant-cuisine {
   font-size: 1.5em;
   font-weight: 300;
   letter-spacing: 10px;
-  margin: 4px 0 20px;
+  margin: 10px 0 20px;
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
@@ -765,10 +765,9 @@ background-color: #1016EE;
   }
 
   p#restaurant-cuisine {
-
+    margin-top: 6px;
     font-size: 1.5em;
-
-  }
+}
 
   p#restaurant-address {
 
