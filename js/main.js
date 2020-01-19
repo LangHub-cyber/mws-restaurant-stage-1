@@ -191,13 +191,13 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 }; 
 
 
-//from sessionstack and  udacity and traversy media and jeff posnick
+//From sessionstack and  udacity and traversy media and jeff posnick
 
-//check to see if browser is supported
+//Check to see if browser is supported
 
 if ('serviceWorker' in navigator) {
 
-  //for sake of user experience, make sure initial page loads prior to registration
+  //For sake of user experience, make sure initial page loads prior to registration
   window.addEventListener('load', function() {
 
     navigator.serviceWorker.register('js/sw.js').then(function(registration) {
@@ -205,7 +205,7 @@ if ('serviceWorker' in navigator) {
 
       console.log('ServiceWorker registration success: ', registration);
 
-      //once installed, goes through the install and activate events in lifecycle
+      //Once installed, goes through the install and activates events in lifecycle
 
     }, function(err) {
       
