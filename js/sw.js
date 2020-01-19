@@ -1,6 +1,7 @@
 // From Traversy Media, mozilla mdn,google chrome documentation re service workers
 //and Jeff Posnick,  Jake Archibald, Bits and Pieces
 // 'use strict';
+/*jshint esversion: 6 */
 
 const staticCache = 'staticCache-v1';
 
@@ -85,7 +86,7 @@ self.addEventListener('activate', (event) => {
     
        })
   
-      )
+      );
 
     })
 
@@ -96,13 +97,19 @@ self.addEventListener('activate', (event) => {
 
 //To check if files available offline, need fetch event.
 //Then enable offline content availability.
-self.addEventListener('fetch', event => {
 
-  console.log('Service worker fetches');
 
-  event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
-  
-    
+self.addEventListener('fetch', (event) => {
+
+  event.respondWith(
+
+    caches.match(event.request)
+
+      .then((response) => {
+
+        return response || fetch(event.request);
+
+      })
+  );
+
 });
-
-
