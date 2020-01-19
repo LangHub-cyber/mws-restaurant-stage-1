@@ -75,11 +75,14 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.className = 'restaurant-img'; 
   image.alt=`Promo view of restaurant ${restaurant.name}`; //Added alt attribute for accessibility.
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('margin-top', 4);
   image.setAttribute('tabindex', 0); 
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-  cuisine.setAttribute('tabindex', 0); 
+  cuisine.setAttribute('tabindex', 0);
+  
+  
 
   // fill operating hours
   if (restaurant.operating_hours) {
