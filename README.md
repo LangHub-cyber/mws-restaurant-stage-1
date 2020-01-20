@@ -12,7 +12,7 @@ Udacity provided starter code for a restaurant reviews website. The code has usa
 
 ### Project Rubric
 
-Theproject will be evaluated by a Udacity code reviewer according to the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view). The rubric was used as a resource referred to periodically to ensure project met specifications.
+The project will be evaluated by a Udacity code reviewer according to the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view). The rubric was used as a resource referred to periodically to ensure project met specifications.
 
 ### How Should This Project Be Viewed?
 
@@ -34,32 +34,32 @@ Most of the code in this project has been written to the ES6 JavaScript specific
 
 ### ADDITIONAL NOTES FROM STUDENT:
 
-Among other techniques,
+Among other techniques:
 
-*Added English language tag to HTML documents.
-*Used viewport meta tags to increase website responsiveness.
-*Used (most often) 100% width and auto height for image responsiveness.
-*Used em font sizes wherever applicable to add to site responsiveness.
-*Used tabindex of 0, focus and hover to increase accessibility, particularly for screen readers.
-*Used color scheme that avoided red (can incite seizures) and instead used other highly contrasted colors.
-*Added skip-link for both screen reader and sighted-user access to main content.
-*Used Lighthouse to verify 98% accessibility audit.
-*Tested screen reader usability utilizing Google ChromeVox tool.
-*Used Google Chrome and Firefox browsers to test overall appearance, accessibility and functionality.
-*Developed code using SublimeText on Windows 7 platform.
-*Used Google Chrome developer Inspect tools to do offline service worker code testing.
+* Added English language tag to HTML documents.
+* Used viewport meta tags to increase website responsiveness.
+* Used (most often) 100% width and auto height for image responsiveness.
+* Used em font sizes wherever applicable to add to site responsiveness.
+* Used tabindex of 0, focus and hover to increase accessibility, particularly for screen readers.
+* Used color scheme that avoided red (can incite seizures) and instead used other highly contrasted colors.
+* Added skip-link for both screen reader and sighted-user access to main content.
+* Used Lighthouse to verify 98% accessibility audit.
+* Tested screen reader usability utilizing Google ChromeVox tool.
+* Used Google Chrome and Firefox browsers to test overall appearance, accessibility and functionality.
+* Developed code using SublimeText on Windows 7 platform.
+* Used Google Chrome developer Inspect tools to do offline service worker code testing.
 
 ### CONTRIBUTORS/RESOURCES:
-*Wyzant.com tutor Ian Hamilton
-*Doug Brown Restaurant Reviews App Video
-*W3schools.com
-*Mozilla MDN
-*CSS-Tips and Tricks
-*Traversy Media (service workers)
-*Alexandro Perez - Responsive Web App Videos
-*Google Chrome Service Worker Documentation
-*GitHub Service worker and responsive images documentation
-*LinkedIn graphic design course (partially completed)
+* Wyzant.com tutor Ian Marshall
+* Doug Brown Restaurant Reviews App Video
+* W3schools.com
+* Mozilla MDN
+* CSS-Tips and Tricks
+* Traversy Media (service workers)
+* Alexandro Perez - Responsive Web App Videos
+* Google Chrome Service Worker Documentation
+* GitHub Service worker and responsive images documentation
+* LinkedIn graphic design course (partially completed)
 
 
 
